@@ -1,4 +1,12 @@
-## Gentoo KVM-Proxmox Image
+Gentoo KVM-Proxmox Image
+========================
+
+**You would like to show your appreciation for our help 8-o. Gladly. We thank you for your donation! ;)**
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=JTFYJYVH37MNE">
+  <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif">
+</a>
+
 
 Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanently maintained and has an update cycle of about 2 weeks.
 
