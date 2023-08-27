@@ -1,0 +1,5 @@
+You can download the image from here:
+
+https://sourceforge.net/projects/gentoo-kvm-proxmox-image/files/
+
+Have Fun! :)

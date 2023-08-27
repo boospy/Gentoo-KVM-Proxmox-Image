@@ -1,0 +1,97 @@
+## Gentoo KVM-Proxmox Image
+
+Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanently maintained and has an update cycle of about 2 weeks.
+
+### System information
+
++ Hostname: gtemplate.osit.cc
++ EFI + Systemd
++ 32GB drive + 8G swap drive
++ 8GB Memory
++ 32 Cores, 8 vCPU's
++ CPUtype: x86-64-v2-AES
++ Serial terminal activated
++ Autofilesystem repair activated
++ CPU, Memory, Disk, Network, USB Hotplug activated
++ Guestagent activated
++ Genkernel
++ Filesystem: EXT4
++ Nano Syntax highlighting
+
+### Make.conf Options
+
+~~~
+COMMON_FLAGS="-march=x86-64 -O2 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+FFLAGS="${COMMON_FLAGS}"
+
+LC_MESSAGES=C.utf8
+
+USE="-X threads -libav -cups -java vaapi sudo dist-kernel"
+
+CCACHE_SIZE="2G"
+MAKEOPTS="-j9"
+
+LINGUAS="de"
+ACCEPT_LICENSE="*"
+
+PORTAGE_ELOG_CLASSES="log warn error info"
+PORTAGE_ELOG_SYSTEM="echo save"
+PORTAGE_NICENESS="10"
+
+#PORTDIR_OVERLAY="${PORTDIR_OVERLAY} /usr/local/portage/"
+#source /var/lib/layman/make.conf
+
+GENTOO_MIRRORS="rsync://mirror.dkm.cz/gentoo/ \
+    https://ftp.agdsn.de/gentoo"
+GRUB_PLATFORMS="efi-64 qemu"
+~~~
+
+### Additionally installed software
+
++ elogv
++ bind-tools
++ portage-utils
++ eix
++ avahi-daemon and tool
++ ZSH (powerlevel10k + Zplug)
++ cifs-utils
++ nfs-utils
++ git
++ pam_mount
++ mtr
++ preload
++ speedtest-cli
++ usbutils
++ diaglog
++ htop
++ portpeek
+
+## Import and start on Proxmox
+
+First you have to download the image/template from my site here: https://sourceforge.net/projects/gentoo-kvm-proxmox-image/files/
+
+Save the file on your preferred storage and import it into your Proxmox with the webinterface or the cli. Click here for the Proxmox documentation. Topic Backup and Restore.
+https://pve.proxmox.com/pve-docs/chapter-vzdump.html
+
+After start the VM get an IP over DHCP. You are able to login with root and password "gentoo".
+
+## Extract the image and import it on another KMV hypervisor
+If you are running a different virtualisation like KVM, there is also the possibility to unpack the archive and access the RAW files.
+First you have to unpack the gzip file. After that you have an VMA. With the VMA extractor you can unpack that archive and list the RAW files.
+
+~~~
+vma list <filename>
+vma config <filename> [-c config]
+vma create <filename> [-c config] pathname ...
+vma extract <filename> [-r <fifo>] <targetdir>
+vma verify <filename> [-v]
+~~~
+
+## Kernelupgrade of the Image
+~~~
+genkernel --kernel-config=/root/kernel-config --virtio all
+grub-mkconfig -o /boot/grub/grub.cfg
+~~~
