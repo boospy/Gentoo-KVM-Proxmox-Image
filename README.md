@@ -39,8 +39,10 @@ LC_MESSAGES=C.utf8
 
 USE="-X threads -libav -cups -java vaapi sudo dist-kernel"
 
+BOOTLOADER="grub2"
+
 CCACHE_SIZE="2G"
-MAKEOPTS="-j9"
+MAKEOPTS="-j25"
 
 LINGUAS="de"
 ACCEPT_LICENSE="*"

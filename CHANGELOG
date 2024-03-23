@@ -1,3 +1,10 @@
+23.3.2024
+
+- general updates
+- Update to Kernel 6.6
+- changed systemprofile to "default/linux/amd64/17.1/systemd/merged-usr"
+
+
 24.1.2024
 
 - changed zshrc to much more generic
