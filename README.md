@@ -16,7 +16,7 @@ Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanen
 + EFI + Systemd
 + 32GB drive + 8G swap drive
 + 8GB Memory
-+ 32 Cores, 8 vCPU's
++ 20 Cores, 1 Socket
 + CPUtype: x86-64-v2-AES
 + Serial terminal activated
 + Autofilesystem repair activated
@@ -42,7 +42,7 @@ USE="-X threads -libav -cups -java vaapi sudo dist-kernel"
 BOOTLOADER="grub2"
 
 CCACHE_SIZE="2G"
-MAKEOPTS="-j25"
+MAKEOPTS="-j21"
 
 LINGUAS="de"
 ACCEPT_LICENSE="*"
