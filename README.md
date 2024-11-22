@@ -16,8 +16,8 @@ Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanen
 
 + Hostname: gtemplate.osit.cc
 + EFI + Systemd
-+ 32GB drive + 8G swap drive
-+ 8GB Memory
++ 40GB drive + 8G swap drive
++ 16GB Memory
 + 20 Cores, 1 Socket
 + CPUtype: x86-64-v2-AES
 + Serial terminal activated

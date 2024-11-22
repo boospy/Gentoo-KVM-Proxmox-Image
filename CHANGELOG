@@ -1,3 +1,13 @@
+22.11.2024
+
+- update to gcc 14
+- change system profile to "default/linux/amd64/23.0/systemd"
+- enlarge the root image to 40GB
+- enlarge memory to 16GB -> for some updates you need more memory
+- update kernel to version 6.6.62
+- add kernel-update-helper.txt to /root
+- rebuild the whole system with new gcc 14
+
 23.3.2024
 
 - general updates
