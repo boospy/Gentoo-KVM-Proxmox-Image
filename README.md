@@ -14,7 +14,7 @@ Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanen
 
 ### System information
 
-+ Hostname: gtemplate.osit.cc
++ Hostname: gtemplate.local
 + EFI + Systemd
 + 40GB drive + 8G swap drive
 + 16GB Memory
@@ -67,7 +67,7 @@ GRUB_PLATFORMS="efi-64 qemu"
 + bind-tools
 + portage-utils
 + eix
-+ avahi-daemon and tool
++ avahi-daemon and tools
 + ZSH (powerlevel10k + Zplug)
 + cifs-utils
 + nfs-utils
@@ -104,6 +104,8 @@ vma verify <filename> [-v]
 
 ## Kernelupgrade of the Image
 ~~~
-genkernel --kernel-config=/root/kernel-config --virtio all
+eselect kernel list
+eselect kernel <n>
+genkernel --kernel-config=/root/kernel-config --makeopts=-j21 --virtio all
 grub-mkconfig -o /boot/grub/grub.cfg
 ~~~
