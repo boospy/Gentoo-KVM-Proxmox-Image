@@ -1,6 +1,6 @@
 You can download the image from here:
 
-Image updated 22.08.2025
+Image updated 29.08.2025
 
 https://sourceforge.net/projects/gentoo-kvm-proxmox-image/files/
 
