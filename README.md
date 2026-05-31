@@ -105,7 +105,7 @@ vma verify <filename> [-v]
 ## Kernelupgrade of the Image
 ~~~
 eselect kernel list
-eselect kernel <n>
+eselect kernel set <n>
 genkernel --kernel-config=/root/kernel-config --makeopts=-j21 --virtio all
 grub-mkconfig -o /boot/grub/grub.cfg
 ~~~
