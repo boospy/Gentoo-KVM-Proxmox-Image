@@ -14,7 +14,7 @@ Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanen
 
 ### System information
 
-+ Hostname: gtemplate.local
++ Hostname: gtemplate.local (MDNS/Avahi)
 + EFI + Systemd
 + 50GB drive + 8G swap drive
 + 16GB Memory
@@ -24,13 +24,13 @@ Here you can download a Gentoo VM image for KVM (Proxmox). The image is permanen
 + Autofilesystem repair activated
 + CPU, Memory, Disk, Network, USB Hotplug activated
 + Guestagent activated
-+ Genkernel
++ Gentoo-kernel-bin
 + Filesystem: EXT4
 + Nano Syntax highlighting
 
 ### Make.conf Options
 
-~~~
+```bash
 COMMON_FLAGS="-march=x86-64 -O2 -pipe"
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
@@ -59,12 +59,12 @@ PORTAGE_NICENESS="10"
 GENTOO_MIRRORS="rsync://mirror.dkm.cz/gentoo/ \
     https://ftp.agdsn.de/gentoo"
 GRUB_PLATFORMS="efi-64 qemu"
-~~~
+```
 
 ### Additionally installed software
 
 + elogv
-+ bind-tools
++ ~~bind-tools~~ (masked)
 + portage-utils
 + eix
 + avahi-daemon and tools
@@ -94,18 +94,22 @@ After start the VM get an IP over DHCP. You are able to login with root and pass
 If you are running a different virtualisation like KVM, there is also the possibility to unpack the archive and access the RAW files.
 First you have to unpack the gzip file. After that you have an VMA. With the VMA extractor you can unpack that archive and list the RAW files.
 
-~~~
+```bash
 vma list <filename>
 vma config <filename> [-c config]
 vma create <filename> [-c config] pathname ...
 vma extract <filename> [-r <fifo>] <targetdir>
 vma verify <filename> [-v]
-~~~
+```
 
 ## Kernelupgrade of the Image
-~~~
-eselect kernel list
-eselect kernel set <n>
-genkernel --kernel-config=/root/kernel-config --makeopts=-j21 --virtio all
+The kernel is updated automatically with gentoo-kernel-bin. Normally, there's nothing else you need to do here anymore.
+
+<strike>
+
+eselect kernel list \
+eselect kernel set <n> \
+genkernel --kernel-config=/root/kernel-config --makeopts=-j21 --virtio all \
 grub-mkconfig -o /boot/grub/grub.cfg
-~~~
+
+</strike>

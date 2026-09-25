@@ -1,3 +1,13 @@
+26.09.2026
+
+- Bugfix #971645 https://bugs.gentoo.org/971645
+- removed deprecated "sys-kernel/genkernel"
+- changed from gentoo-sources, gentoo-kernel to "sys-kernel/gentoo-kernel-bin"
+- add TPM module
+- normal system updates
+- update kernel to version 6.18.50-gentoo-dist-bin
+
+
 15.06.2026
 
 - normal system updates
